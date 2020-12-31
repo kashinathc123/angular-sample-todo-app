@@ -1,0 +1,32 @@
+<div class="sidebar">
+	<h2 style="text-align:center">Formation Angular</h2>
+	<p style="text-align:center">
+		Réalisation d'une application type<br>
+		<span class="badge">"Trello like"</span>
+		<img src="https://aircall.io/_nuxt/img/191b973.svg">
+  </p>
+		<p style="text-align:left">
+			<u>Formateur</u> : <a routerLink="/teacher" href="#">Frédéric LOSSIGNOL</a>
+			<br>
+    IT Teacher dev web & mobile
+  </p>
+			<hr>
+			<p><strong><u>Testez les actions</u></strong> :</p>
+			<ol>
+				<li>Ajouter/Supprimer des listes</li>
+				<li>Modifier le nom d'une liste (clickez dessus)</li>
+				<li>Ajouter/supprimer des cards </li>
+				<li>Mettre à jour des cards</li>
+				<li>Déplacer/ré-ordonner des cards </li>
+			</ol>
+			<a routerLink="info" href="#">+ d'infos</a>
+
+			<hr>
+
+			<h2 style="text-align:center">Tâches prioritaires</h2>
+			<hr>
+			<ul>
+				<li class="priority" (click)="getDetailAction(card)" *ngFor="let card of cards">{{card.title}}</li>
+			</ul>
+
+</div>

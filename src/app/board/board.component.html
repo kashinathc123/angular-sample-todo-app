@@ -1,0 +1,69 @@
+<div cdkDropListGroup class="board">
+  <!-- LIST-->
+  <div
+    cdkDropList
+    [cdkDropListData]="board[i].cards"
+    (cdkDropListDropped)="drop($event, i)"
+    *ngFor="let list of board; let i=index"
+    class="list"
+  >
+    <!-- View TitleList or Input -->
+    <span class="listTitle"
+      *ngIf="editingListId != list.id"
+      (click)="editTitleList(list)"
+      title="cliquez pour modifier"
+      >{{list.name}}</span
+    >
+
+    <div
+      style="display:flex; justify-content:center"
+      *ngIf="titleListEditor && editingListId == list.id"
+    >
+      <input #titleListInput [value]="list.name" />
+      <button (click)="getTitleListOnKeyUp(titleListInput.value, list)">
+        OK
+      </button>
+    </div>
+
+    <button (click)="deleteListAction(list)" class="delete-card">X</button>
+
+    <!-- CARD -->
+    <div
+      [style.borderLeft]="getCardStyle(card)"
+      (click)="openModal(card)"
+      cdkDrag
+      *ngFor="let card of list.cards"
+      class="card"
+    >
+      {{card.title}}
+      <button
+        (click)="deleteCardAction($event, list.id, card.id)"
+        class="delete-card"
+      >
+        X
+      </button>
+    </div>
+    <!-- END CARD -->
+
+    <a href="#" class="add-card" (click)="addCardAction(list.id)"
+      >+ Add a card</a
+    >
+  </div>
+  <!-- END LIST-->
+
+  <div class="list">
+    <!-- <div>Ajouter une liste</div> -->
+    <a href="#" (click)="addListAction()">+ Add another list</a>
+  </div>
+</div>
+
+<div *ngIf="isModalOpen" class="modal">
+  <button (click)="closeModal()" class="close">X</button>
+
+  <!-- COMPONENT app-card-modal -->
+  <app-card-modal
+    (formSubmitEvent)="closeModal()"
+    [selectedCard]="cardObject"
+  ></app-card-modal>
+</div>
+<div *ngIf="isModalOpen" class="backdrop"></div>

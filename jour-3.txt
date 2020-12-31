@@ -1,0 +1,7 @@
+0 Rappels 
+1 ngStyle et ngClass
+2 refacto service
+3 refacto component board et priority
+3 formulaire ReactiveForm
+4 request HTTP
+5 Build et déploiement

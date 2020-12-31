@@ -1,0 +1,28 @@
+ul {
+  padding: 0;
+  list-style: none
+}
+ul li {
+  background: rgb(35, 41, 49);
+  border-bottom: 1px solid rgb(109, 71, 71);
+  padding:5px;
+}
+ul li:hover {
+  background: rgb(189, 109, 109);
+  padding:5px;
+  cursor:pointer;
+}
+ol {
+  padding-left:15px;
+}
+a {
+  color: aqua
+}
+.badge {
+  background: #11ff99;
+  color: #0c0c0c;
+  padding: 1px 5px;
+  border-radius: 50px;
+  position: relative;
+  top: 5px;
+}
